@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CinemachineTarget
   - Fire
+  - Wall
+  - Paddle
+  - Ball
   layers:
   - Default
   - TransparentFX
