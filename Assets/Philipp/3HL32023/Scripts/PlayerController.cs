@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,10 +17,17 @@ public class PlayerController : MonoBehaviour
     public float grabDist;
 
     public float slowScale;
+
+    public float originalFixedDeltaTime;
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    private void Awake()
+    {
+        originalFixedDeltaTime = Time.fixedDeltaTime;
     }
 
     // Update is called once per frame
@@ -30,10 +38,12 @@ public class PlayerController : MonoBehaviour
             if (Time.timeScale ==1)
             {
                 Time.timeScale = slowScale;
+                Time.fixedDeltaTime = originalFixedDeltaTime * slowScale;
             }
             else
             {
                 Time.timeScale = 1;
+                Time.fixedDeltaTime = originalFixedDeltaTime;
             }
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
