@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Bomb.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.high-definition@12.1.10/Editor/RenderPipeline/HDShaderUtils.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -82,7 +83,7 @@
       <updated>1679907510084</updated>
       <workItem from="1679907519982" duration="598000" />
       <workItem from="1679910725041" duration="1856000" />
-      <workItem from="1679920654430" duration="1516000" />
+      <workItem from="1679920654430" duration="3313000" />
     </task>
     <servers />
   </component>

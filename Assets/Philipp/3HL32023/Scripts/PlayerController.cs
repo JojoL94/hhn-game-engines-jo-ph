@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject ballPrefab, hand, objInhand;
+    public GameObject ballPrefab, hand, objInhand, bombPrefab;
 
     public GameObject camera;
     public int throwForce;
@@ -80,9 +80,9 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                GameObject ball = Instantiate(ballPrefab, hand.transform.position, new Quaternion(0, 0, 0, 0));
-                Rigidbody ballRB = ball.GetComponent<Rigidbody>();
-                ballRB.AddForce(camera.transform.forward * throwForce, ForceMode.Impulse);
+                GameObject bomb = Instantiate(bombPrefab, hand.transform.position, new Quaternion(0, 0, 0, 0));
+                Rigidbody bombRB = bomb.GetComponent<Rigidbody>();
+                bombRB.AddForce(camera.transform.forward * throwForce, ForceMode.Impulse);
             }
         }
         
