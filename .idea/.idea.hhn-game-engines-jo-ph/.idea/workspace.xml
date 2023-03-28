@@ -9,6 +9,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Johannes/4Arkanoid/Scripts/Brick.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PowerUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.high-definition@12.1.10/Editor/RenderPipeline/HDShaderUtils.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -84,7 +85,8 @@
       <workItem from="1679907519982" duration="598000" />
       <workItem from="1679910725041" duration="1856000" />
       <workItem from="1679920654430" duration="3313000" />
-      <workItem from="1679943310636" duration="3717000" />
+      <workItem from="1679943310636" duration="4355000" />
+      <workItem from="1680006124405" duration="18537000" />
     </task>
     <servers />
   </component>

@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            if (Time.timeScale ==1)
+            if (Time.timeScale == 1)
             {
                 Time.timeScale = slowScale;
                 Time.fixedDeltaTime = originalFixedDeltaTime * slowScale;
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if(objInhand !=null)
+            if(objInhand != null)
             {
                 objInhand.transform.parent = null;
                 objInhand.GetComponent<Rigidbody>().isKinematic = false;

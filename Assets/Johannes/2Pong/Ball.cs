@@ -5,11 +5,14 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Ball : MonoBehaviour
 {
+    private float tmpMaxX;
+    private float tmpMaxZ;
     public float maxX;
     public float maxZ;
     private Vector3 velocity;
     public Transform playArea;
-
+    private bool gluedOnPaddle = false;
+    private bool glued = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +23,7 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Score: " + GameManager.instance.P1Score + " - " + GameManager.instance.P2Score);
-        }
+       
         transform.position += velocity * Time.deltaTime;
         float maxZPosition = playArea.localScale.z * 0.5f * 10;
         if (transform.position.z > maxZPosition)
@@ -38,17 +38,41 @@ public class Ball : MonoBehaviour
             velocity = new Vector3(0, 0, maxZ);
             GameManager.instance.P2Score += 1;
         }
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (gluedOnPaddle)
+            {
+                maxX = tmpMaxX;
+                maxZ = tmpMaxZ;
+                glued = false;
+                gluedOnPaddle = false;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Paddle"))
         {
-            float maxDist = 0.5f * other.transform.localScale.x + 0.5f * transform.localScale.x;
-            float actualDist = transform.position.x - other.transform.position.x;
-            float distNorm = actualDist / maxDist;
-            velocity.x = distNorm * maxX;
-            velocity.z *= -1;
+            if (glued)
+            {
+                Debug.Log("Glued Boolean funktioniert");
+                tmpMaxX = maxX;
+                tmpMaxZ = maxZ;
+                maxX = 0;
+                maxZ = 0;
+                gluedOnPaddle = true;
+            }
+            else
+            {
+                float maxDist = 0.5f * other.transform.localScale.x + 0.5f * transform.localScale.x;
+                float actualDist = transform.position.x - other.transform.position.x;
+                float distNorm = actualDist / maxDist;
+                velocity.x = distNorm * maxX;
+                velocity.z *= -1;
+            }
+
         }
         else if (other.CompareTag(("Wall")))
         {
@@ -56,7 +80,10 @@ public class Ball : MonoBehaviour
         }
         //velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
         GetComponent<AudioSource>().Play();
-        
+    }
 
+    public void Glued()
+    {
+        glued = true;
     }
 }
