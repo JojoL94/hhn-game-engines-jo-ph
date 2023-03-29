@@ -44,7 +44,17 @@ public class Brick : MonoBehaviour
             }
             if (health <= 0)
             {
-                Destroy(gameObject); // Zerstören Sie den Stein, wenn die Gesundheit <= 0 ist
+                if (gameObject.GetComponent<SpawnPowerUp>() != null)
+                {
+                    GameManager.instance.P1Score += 1;
+                    GetComponent<SpawnPowerUp>().ChooseSpawnPowerUp();
+                }
+                else
+                {
+                    GameManager.instance.P1Score += 1;
+                    Destroy(gameObject); // Zerstören Sie den Stein, wenn die Gesundheit <= 0 ist
+                }
+ 
             }
         }
     }

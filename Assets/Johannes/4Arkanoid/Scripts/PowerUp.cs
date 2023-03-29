@@ -1,22 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    public Transform playArea;
     // Update is called once per frame
     public int powerUpMode;
+    private float timeRemaining = 20f;
+
+    bool timerIsRunning = false;
+
+    private void Start()
+    {
+        timerIsRunning = true;
+    }
 
     // Update is called once per frame
     void Update()
     {
         transform.position += new Vector3(0,0,-1f) * Time.deltaTime;
-        float maxZPosition = playArea.localScale.z * 0.5f * 10;
-
-        if(transform.position.z < -maxZPosition)
+        if (timerIsRunning)
         {
-            Destroy(gameObject);
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                Debug.Log("Time has run out!");
+                timeRemaining = 0;
+                Destroy(gameObject);
+                timerIsRunning = false;
+
+            }
         }
     }
 
@@ -24,7 +41,6 @@ public class PowerUp : MonoBehaviour
     {
         if (other.CompareTag("Paddle"))
         {
-            Debug.Log("Collider funktioniert");
             other.GetComponent<PowerUpMode>().PowerUpOn(powerUpMode);
         }
         

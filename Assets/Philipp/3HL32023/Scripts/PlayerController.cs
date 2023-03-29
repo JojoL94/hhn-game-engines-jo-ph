@@ -19,11 +19,7 @@ public class PlayerController : MonoBehaviour
     public float slowScale;
 
     public float originalFixedDeltaTime;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     private void Awake()
     {

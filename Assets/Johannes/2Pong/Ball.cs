@@ -5,63 +5,65 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Ball : MonoBehaviour
 {
-    private float tmpMaxX;
-    private float tmpMaxZ;
     public float maxX;
     public float maxZ;
-    private Vector3 velocity;
+    private Vector3 _velocity;
     public Transform playArea;
     private bool gluedOnPaddle = false;
     private bool glued = false;
+
+    public Transform paddleTra;
     // Start is called before the first frame update
     void Start()
     {
-        velocity = new Vector3(0, 0, maxZ);
+        _velocity = new Vector3(0, 0, maxZ);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-        transform.position += velocity * Time.deltaTime;
-        float maxZPosition = playArea.localScale.z * 0.5f * 10;
-        if (transform.position.z > maxZPosition)
-        {
-            transform.position = new Vector3(0, 0.5f, 0);
-            velocity = new Vector3(0, 0, -maxZ);
-            GameManager.instance.P1Score += 1;
-        }
-        else if(transform.position.z < -maxZPosition)
-        {
-            transform.position = new Vector3(0, 0.5f, 0);
-            velocity = new Vector3(0, 0, maxZ);
-            GameManager.instance.P2Score += 1;
-        }
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (gluedOnPaddle)
         {
-            if (gluedOnPaddle)
+            transform.position = new Vector3(paddleTra.position.x, transform.position.y, transform.position.z);
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                maxX = tmpMaxX;
-                maxZ = tmpMaxZ;
                 glued = false;
                 gluedOnPaddle = false;
             }
         }
+        else
+        {
+            transform.position += _velocity * Time.deltaTime;
+            float maxZPosition = playArea.localScale.z * 0.5f * 10;
+            if (transform.position.z > maxZPosition)
+            {
+                transform.position = new Vector3(0, 0.5f, 0);
+                _velocity = new Vector3(0, 0, -maxZ);
+
+            }
+            else if(transform.position.z < -maxZPosition)
+            {
+                transform.position = new Vector3(0, 0.5f, 0);
+                _velocity = new Vector3(0, 0, maxZ);
+                GameManager.instance.Leben -= 1;
+            }
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Paddle"))
+        if (other.CompareTag("Paddle") || other.CompareTag("Brick"))
         {
-            if (glued)
+            if (glued && other.CompareTag("Paddle"))
             {
-                Debug.Log("Glued Boolean funktioniert");
-                tmpMaxX = maxX;
-                tmpMaxZ = maxZ;
-                maxX = 0;
-                maxZ = 0;
+                float maxDist = 0.5f * other.transform.localScale.x + 0.5f * transform.localScale.x;
+                float actualDist = transform.position.x - other.transform.position.x;
+                float distNorm = actualDist / maxDist;
+                _velocity.x = distNorm * maxX;
+                _velocity.z *= -1;
                 gluedOnPaddle = true;
             }
             else
@@ -69,16 +71,15 @@ public class Ball : MonoBehaviour
                 float maxDist = 0.5f * other.transform.localScale.x + 0.5f * transform.localScale.x;
                 float actualDist = transform.position.x - other.transform.position.x;
                 float distNorm = actualDist / maxDist;
-                velocity.x = distNorm * maxX;
-                velocity.z *= -1;
+                _velocity.x = distNorm * maxX;
+                _velocity.z *= -1;
             }
 
         }
         else if (other.CompareTag(("Wall")))
         {
-            velocity.x *= -1;
+            _velocity.x *= -1;
         }
-        //velocity = new Vector3(velocity.x, velocity.y, -velocity.z);
         GetComponent<AudioSource>().Play();
     }
 
