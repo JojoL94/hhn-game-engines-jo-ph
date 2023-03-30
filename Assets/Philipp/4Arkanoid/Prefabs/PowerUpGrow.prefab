@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7118939331949802372}
   - component: {fileID: 7118939331949802373}
   - component: {fileID: 7118939331949802368}
-  - component: {fileID: 3524501036979942730}
+  - component: {fileID: -1840775079256461882}
   m_Layer: 0
   m_Name: PowerUpGrow
   m_TagString: Untagged
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3524501036979942730
+--- !u!114 &-1840775079256461882
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7118939331949802395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dced97b3a4f9d92418d63b4aa77ef8f4, type: 3}
+  m_Script: {fileID: 11500000, guid: b18b80097b5c7ba439379e87c580a765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpMode: 2

@@ -38,7 +38,7 @@ public class PowerUpMode : MonoBehaviour
 
         if (powerUpMode == 1)
         {
-            ball.GetComponent<Ball>().Glued();
+            ball.GetComponent<BallMovement>().Glued();
             glue = true;
         } else if (powerUpMode == 2)
         {

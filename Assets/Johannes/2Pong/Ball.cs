@@ -76,6 +76,16 @@ public class Ball : MonoBehaviour
             }
 
         }
+        else if (other.CompareTag("Hori.Wall"))
+        {
+            
+            float maxDist = 0.5f * other.transform.localScale.x + 0.5f * transform.localScale.x;
+            float actualDist = transform.position.x - other.transform.position.x;
+            float distNorm = actualDist / maxDist;
+            _velocity.x = distNorm * maxX;
+            _velocity.z *= -1;
+            
+        }
         else if (other.CompareTag(("Wall")))
         {
             _velocity.x *= -1;
