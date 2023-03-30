@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private int p1Score = 0;
-    private int p2Score = 0;
+    private int leben = 3;
     public TMP_Text textMesh;
     public static GameManager instance;
 
@@ -25,32 +26,31 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public int P2Score
+    public int Leben
     {
         set
         {
-            p2Score = value;
+            leben = value;
+            if (leben == 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
             updateScoreDisplay();
             
         }
         get
         {
-            return p2Score;
+            return leben;
         }
     }
 
     void updateScoreDisplay()
     {
-        textMesh.text = p1Score + " - " + p2Score;
+        textMesh.text = "Punkte: " + p1Score + "\n Leben: "  + leben;
     }
     private void Awake()
     {
         instance = this;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 }

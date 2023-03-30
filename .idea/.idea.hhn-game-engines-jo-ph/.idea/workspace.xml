@@ -8,6 +8,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/82ff21ca19ff4a6c94c6df953addbbcc7400/df/a4377b04/Input.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Johannes/4Arkanoid/Scripts/Brick.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.high-definition@12.1.10/Editor/RenderPipeline/HDShaderUtils.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -81,7 +83,11 @@
       <option name="presentableId" value="Default" />
       <updated>1679907510084</updated>
       <workItem from="1679907519982" duration="598000" />
-      <workItem from="1679910725041" duration="618000" />
+      <workItem from="1679910725041" duration="1856000" />
+      <workItem from="1679920654430" duration="3313000" />
+      <workItem from="1679943310636" duration="4355000" />
+      <workItem from="1680006124405" duration="18537000" />
+      <workItem from="1680094993233" duration="12643000" />
     </task>
     <servers />
   </component>
