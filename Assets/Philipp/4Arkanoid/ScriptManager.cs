@@ -9,8 +9,10 @@ public class ScriptManager : MonoBehaviour
 {
     private int p1Score = 0;
     private int leben = 3;
-    public TMP_Text textMesh;
+    public TMP_Text textMesh, stopwatchText;
     public static ScriptManager instance;
+
+    public float stopwatchTime, startTime, endTime;
 
     public int P1Score
     {
@@ -48,9 +50,18 @@ public class ScriptManager : MonoBehaviour
     {
         textMesh.text = "Points: " + p1Score + "\n Hearts: "  + leben;
     }
+
     private void Awake()
     {
         instance = this;
+    }
+
+    public void stopTime()
+    {
+        endTime = Time.time;
+        stopwatchTime = endTime - startTime;
+        stopwatchText.text = Mathf.FloorToInt(stopwatchTime / 60) + "m " + Mathf.Round(stopwatchTime - (60 * Mathf.FloorToInt(stopwatchTime / 60))) + "s ";
+
     }
     
 }

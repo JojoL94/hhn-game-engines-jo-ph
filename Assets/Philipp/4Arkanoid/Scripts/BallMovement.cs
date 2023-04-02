@@ -32,6 +32,7 @@ public class BallMovement : MonoBehaviour
             pressSpace.SetActive(true);
             if(Input.GetKeyDown(KeyCode.Space))
             {
+                ScriptManager.instance.startTime = Time.time;
                 _velocity = new Vector3(0, 0, maxZ);
                 gameStarted = true;
                 transform.parent = null;

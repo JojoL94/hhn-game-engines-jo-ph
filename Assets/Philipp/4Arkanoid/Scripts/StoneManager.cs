@@ -31,7 +31,8 @@ public class StoneManager : MonoBehaviour
     {
         if(transform.childCount == 0)
         {
-            Time.timeScale = 0;
+                        Time.timeScale = 0;
+            ScriptManager.instance.stopTime();
             gameWonUI.SetActive(true);
         }
     }
