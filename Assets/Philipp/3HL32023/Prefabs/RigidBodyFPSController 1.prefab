@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 3351880918228871977}
   - component: {fileID: 3351880918228871981}
   m_Layer: 0
-  m_Name: RigidBodyFPSController
+  m_Name: RigidBodyFPSController 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
