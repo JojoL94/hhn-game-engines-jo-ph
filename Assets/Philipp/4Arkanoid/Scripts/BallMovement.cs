@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class Ball : MonoBehaviour
+public class BallMovement : MonoBehaviour
 {
     public float maxX;
     public float maxZ;
@@ -13,17 +13,33 @@ public class Ball : MonoBehaviour
     private bool glued = false;
 
     public Transform paddleTra;
+    bool gameStarted;
+
+    public GameObject pressSpace;
+
     // Start is called before the first frame update
     void Start()
     {
-        _velocity = new Vector3(0, 0, maxZ);
-
+        gameStarted = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!gameStarted)
+        {
+            transform.parent = paddleTra;
+            pressSpace.SetActive(true);
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                ScriptManager.instance.startTime = Time.time;
+                _velocity = new Vector3(0, 0, maxZ);
+                gameStarted = true;
+                transform.parent = null;
+                pressSpace.SetActive(false);
+            }
+        }
+
         if (gluedOnPaddle)
         {
             transform.position = new Vector3(paddleTra.position.x, transform.position.y, transform.position.z);
@@ -47,7 +63,7 @@ public class Ball : MonoBehaviour
             {
                 transform.position = new Vector3(0, 0.5f, 0);
                 _velocity = new Vector3(0, 0, maxZ);
-                GameManager.instance.Leben -= 1;
+                ScriptManager.instance.Leben -= 1;
             }
         }
 

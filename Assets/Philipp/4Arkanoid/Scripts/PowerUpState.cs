@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PowerUpMode : MonoBehaviour
+public class PowerUpState : MonoBehaviour
 {
 
     private bool glue = false;
@@ -14,7 +14,12 @@ public class PowerUpMode : MonoBehaviour
     public float timeRemaining = 5f;
 
     bool timerIsRunning = false;
+    Vector3 initialScale;
 
+    private void Start()
+    {
+        initialScale = transform.localScale;
+    }
     void Update()
     {
         if (timerIsRunning)
@@ -25,8 +30,8 @@ public class PowerUpMode : MonoBehaviour
             }
             else
             {
-                transform.localScale = new Vector3(transform.localScale.x - 1, transform.localScale.y, transform.localScale.z);
-                Debug.Log("Time has run out!");
+                transform.localScale = initialScale;
+                //Debug.Log("Time has run out!");
                 timeRemaining = 5f;
                 timerIsRunning = false;
             }
