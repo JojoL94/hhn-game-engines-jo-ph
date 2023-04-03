@@ -76,6 +76,23 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                GameObject bomb = Instantiate(ballPrefab, hand.transform.position, new Quaternion(0, 0, 0, 0));
+                Rigidbody bombRB = bomb.GetComponent<Rigidbody>();
+                bombRB.AddForce(camera.transform.forward * throwForce, ForceMode.Impulse);
+            }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if(objInhand != null)
+            {
+                objInhand.transform.parent = null;
+                objInhand.GetComponent<Rigidbody>().isKinematic = false;
+                objInhand.GetComponent<Rigidbody>().AddForce(camera.transform.forward * throwForce, ForceMode.Impulse);
+                objInhand = null;
+            }
+            else
+            {
                 GameObject bomb = Instantiate(bombPrefab, hand.transform.position, new Quaternion(0, 0, 0, 0));
                 Rigidbody bombRB = bomb.GetComponent<Rigidbody>();
                 bombRB.AddForce(camera.transform.forward * throwForce, ForceMode.Impulse);

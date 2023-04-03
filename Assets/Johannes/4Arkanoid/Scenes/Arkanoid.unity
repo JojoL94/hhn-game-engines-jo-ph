@@ -135,27 +135,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 427783965}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &87306826 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4899672694040911671, guid: efd2b9124ac16784fa5f1501ded770f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 6064883710612448891}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &87306832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87306826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f87e0e6c0c689a48a0f582a2bc0b415, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUps:
-  - {fileID: 4614090569148372881, guid: 5fdd56f262325b44e9047d97462f6c43, type: 3}
-  - {fileID: 7118939331949802395, guid: 16c8f3f39c67ce14ab33860e21941158, type: 3}
 --- !u!1001 &138092647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -843,6 +822,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7883215423688518877, guid: dee5b9a4ba7cb474392a6b3434178f66,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 41.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883215423688518877, guid: dee5b9a4ba7cb474392a6b3434178f66,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 41.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883215423688518877, guid: dee5b9a4ba7cb474392a6b3434178f66,
+        type: 3}
+      propertyPath: m_characterSpacing
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dee5b9a4ba7cb474392a6b3434178f66, type: 3}
 --- !u!1001 &1649304430
@@ -1158,11 +1152,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3524501036979942730, guid: 16c8f3f39c67ce14ab33860e21941158,
-        type: 3}
-      propertyPath: playArea
-      value: 
-      objectReference: {fileID: 7076342599426986716}
     - target: {fileID: 7118939331949802374, guid: 16c8f3f39c67ce14ab33860e21941158,
         type: 3}
       propertyPath: m_RootOrder
@@ -1306,26 +1295,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUpBrick
       objectReference: {fileID: 0}
-    - target: {fileID: 4899672694040911671, guid: efd2b9124ac16784fa5f1501ded770f3,
-        type: 3}
-      propertyPath: m_TagString
-      value: Brick
-      objectReference: {fileID: 0}
-    - target: {fileID: 4899672694040911672, guid: efd2b9124ac16784fa5f1501ded770f3,
-        type: 3}
-      propertyPath: materialHealth1
-      value: 
-      objectReference: {fileID: 2100000, guid: a06ed7ffc979a11449351af7fa8436c5, type: 2}
-    - target: {fileID: 4899672694040911672, guid: efd2b9124ac16784fa5f1501ded770f3,
-        type: 3}
-      propertyPath: materialHealth2
-      value: 
-      objectReference: {fileID: 2100000, guid: a06ed7ffc979a11449351af7fa8436c5, type: 2}
-    - target: {fileID: 4899672694040911672, guid: efd2b9124ac16784fa5f1501ded770f3,
-        type: 3}
-      propertyPath: materialHealth3
-      value: 
-      objectReference: {fileID: 2100000, guid: a06ed7ffc979a11449351af7fa8436c5, type: 2}
     - target: {fileID: 4899672694040911676, guid: efd2b9124ac16784fa5f1501ded770f3,
         type: 3}
       propertyPath: m_RootOrder
